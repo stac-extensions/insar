@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://stac-extensions.github.io/insar/v1.0.0/schema.json",
+  "title": "Interferometry Extension",
+  "description": "STAC Interferometry Extension to a STAC Item.",
+  "oneOf": [
+    {
+      "$comment": "This is the schema for STAC Items.",
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "properties",
+            "assets"
+          ],
+          "properties": {
+            "type": {
+              "const": "Feature"
+            },
+            "properties": {
+              "allOf": [
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "insar:perpendicular_baseline"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "insar:temporal_baseline"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "insar:height_of_ambiguity"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "insar:reference_datetime"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "insar:secondary_datetime"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "insar:processing_dem"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "insar:geocoding_dem"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$ref": "#/definitions/fields"
+                }
+              ]
+            },
+            "assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/fields"
+              }
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/stac_extensions"
+        }
+      ]
+    },
+    {
+      "$comment": "This is the schema for STAC Collections.",
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": {
+              "const": "Collection"
+            },
+            "assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/fields"
+              }
+            },
+            "item_assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/fields"
+              }
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/stac_extensions"
+        }
+      ]
+    }
+  ],
+  "definitions": {
+    "stac_extensions": {
+      "type": "object",
+      "required": [
+        "stac_extensions"
+      ],
+      "properties": {
+        "stac_extensions": {
+          "type": "array",
+          "contains": {
+            "const": "https://stac-extensions.github.io/insar/v1.0.0/schema.json"
+          }
+        }
+      }
+    },
+    "fields": {
+      "type": "object",
+      "properties": {
+        "insar:perpendicular_baseline": {
+          "type": "number"
+        },
+        "insar:temporal_baseline": {
+          "type": "number"
+        },
+        "insar:height_of_ambiguity": {
+          "type": "number"
+        }        ,
+        "insar:reference_datetime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "insar:secondary_datetime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "insar:processing_dem": {
+          "type": "string"
+        },
+        "insar:geocoding_dem": {
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "^(?!insar:)": {
+          "$comment": "Do not allow unspecified fields prefixed with insar:"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
