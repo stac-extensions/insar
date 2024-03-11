@@ -46,6 +46,16 @@
                       "required": [
                         "insar:secondary_datetime"
                       ]
+                    },
+                    {
+                      "required": [
+                        "insar:processing_dem"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "insar:geocoding_dem"
+                      ]
                     }
                   ]
                 },
@@ -118,15 +128,13 @@
       "type": "object",
       "properties": {
         "insar:perpendicular_baseline": {
-          "type": "string"
+          "type": "number"
         },
         "insar:temporal_baseline": {
-          "type": "integer",
-          "minimum": 1
+          "type": "number"
         },
         "insar:height_of_ambiguity": {
-          "type": "integer",
-          "minimum": 1
+          "type": "number"
         }        ,
         "insar:reference_datetime": {
           "type": "string",
@@ -135,10 +143,16 @@
         "insar:secondary_datetime": {
           "type": "string",
           "format": "date-time"
+        },
+        "insar:processing_dem": {
+          "type": "string"
+        },
+        "insar:geocoding_dem": {
+          "type": "string"
         }
       },
       "patternProperties": {
-        "^(?!sat:)": {
+        "^(?!insar:)": {
           "$comment": "Do not allow unspecified fields prefixed with insar:"
         }
       },

@@ -9,7 +9,13 @@
 
 This document explains the InSAR Extension to the [SpatioTemporal Asset Catalog](https://github.com/radiantearth/stac-spec) (STAC) specification.
 
-Interferometric synthetic aperture radar, abbreviated InSAR (or deprecated IfSAR), is a radar technique used in geodesy and remote sensing. This geodetic method uses two or more synthetic aperture radar (SAR) images to generate maps of surface deformation or digital elevation, using differences in the phase of the waves returning to the satellite or aircraft. The technique can potentially measure millimetre-scale changes in deformation over spans of days to years. It has applications for geophysical monitoring of natural hazards, for example earthquakes, volcanoes and landslides, and in structural engineering, in particular monitoring of subsidence and structural stability.
+Interferometric synthetic aperture radar, abbreviated InSAR (or deprecated IfSAR),
+is a radar technique used in geodesy and remote sensing.
+This geodetic method uses two or more synthetic aperture radar (SAR) images to generate maps of surface deformation or digital elevation,
+using differences in the phase of the waves returning to the satellite or aircraft.
+The technique can potentially measure millimetre-scale changes in deformation over spans of days to years.
+It has applications for geophysical monitoring of natural hazards, for example earthquakes, volcanoes and landslides,
+and in structural engineering, in particular monitoring of subsidence and structural stability.
 
 The extension is primarly intented to describe **products** of InSAR processing, typically interferograms and related products.
 
@@ -28,7 +34,7 @@ The extension is primarly intented to describe **products** of InSAR processing,
 | insar:height_of_ambiguity    | number | This height of ambiguity is the 2 π interferometric phase cycle scaled with the perpendicular baseline between both satellites. The smaller the height of ambiguity is, the lower is the influence of errors caused by the instrument or the different decorrelation effects. |
 | insar:reference_datetime     | string | Date of reference acquisition, in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).                                                                                                                                 |
 | insar:secondary_datetime     | string | Date of secondary acquisition, in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).                                                                                                                                 |
-| insar:processsing_dem        | string | String representing the Digital Elevation Model used for processing the input data. A list is proposed in the [DEMs section](#digital-elevation-models-dems)                                                                                                                  |
+| insar:processing_dem        | string | String representing the Digital Elevation Model used for processing the input data. A list is proposed in the [DEMs section](#digital-elevation-models-dems)                                                                                                                  |
 | insar:geocoding_dem          | string | String representing the Digital Elevation Model used for geocoding the product. A list is proposed in the [DEMs section](#digital-elevation-models-dems)                                                                                                                      |
 
 ## Best Practices
@@ -45,10 +51,10 @@ It is higly recommended to use the following fields to describe the InSAR produc
 | [sar:looks_range](https://github.com/stac-extensions/sar/#item-properties-or-asset-fields)                          | Number of range looks, which is the number of groups of signal samples (looks) perpendicular to the flight path                         |
 | [sar:looks_azimuth](https://github.com/stac-extensions/sar/#item-properties-or-asset-fields)                        | Number of azimuth looks, which is the number of groups of signal samples (looks) parallel to the flight path.                           |
 | [sar:observation_direction](https://github.com/stac-extensions/sar/#item-properties-or-asset-fields)                | Antenna pointing direction relative to the flight trajectory of the satellite, either left or right.                                    |
-| [sar:pixel_spacing_range ](https://github.com/stac-extensions/sar/#item-properties-or-asset-fields)                 | The range pixel spacing, which is the distance between adjacent pixels perpendicular to the flight path, in meters (m).                 |
-| [sar:pixel_spacing_azimuth ](https://github.com/stac-extensions/sar/#item-properties-or-asset-fields)               | The azimuth pixel spacing, which is the distance between adjacent pixels parallel to the flight path, in meters (m)                     |
-| [sar:resolution_range ](https://github.com/stac-extensions/sar/#item-properties-or-asset-fields)                    | The range resolution, which is the maximum ability to distinguish two adjacent targets perpendicular to the flight path, in meters (m). |
-| [sar:resolution_azimuth ](https://github.com/stac-extensions/sar/#item-properties-or-asset-fields)                  | The azimuth resolution, which is the maximum ability to distinguish two adjacent targets parallel to the flight path, in meters (m).    |
+| [sar:pixel_spacing_range](https://github.com/stac-extensions/sar/#item-properties-or-asset-fields)                 | The range pixel spacing, which is the distance between adjacent pixels perpendicular to the flight path, in meters (m).                 |
+| [sar:pixel_spacing_azimuth](https://github.com/stac-extensions/sar/#item-properties-or-asset-fields)               | The azimuth pixel spacing, which is the distance between adjacent pixels parallel to the flight path, in meters (m)                     |
+| [sar:resolution_range](https://github.com/stac-extensions/sar/#item-properties-or-asset-fields)                    | The range resolution, which is the maximum ability to distinguish two adjacent targets perpendicular to the flight path, in meters (m). |
+| [sar:resolution_azimuth](https://github.com/stac-extensions/sar/#item-properties-or-asset-fields)                  | The azimuth resolution, which is the maximum ability to distinguish two adjacent targets parallel to the flight path, in meters (m).    |
 | [processing:level](https://github.com/stac-extensions/processing#suggested-processing-levels)                       | `L3` level is recommended since InSAR is a composite product.                                                                           |
 | [processing:lineage](https://github.com/stac-extensions/processing#item-properties-and-collection-provider-fields)  | Describe InSAR specific technique. For instance, `Geocoded Unwrapped Interferogram TOPSAR`                                              |
 | [processing:software](https://github.com/stac-extensions/processing#item-properties-and-collection-provider-fields) | Software used for InSAR processing. For instance `{"ESA SNAP Toolbox": "8.0"}, {"SNAPHU": "1.4.2"}`                                     |
@@ -68,7 +74,7 @@ these role names then they will be specified in the future as more standard than
 
 | Role Name        | Description                                             |
 | ---------------- | ------------------------------------------------------- |
-| coherence        | 2D Coherence [0-1] from filtered interferogram          |
+| coherence        | 2D Coherence \[0-1\] from filtered interferogram          |
 | phase            | 2D Filtered wrapped interferogram geocoded in radians   |
 | unwrapped_phase  | 2D Filtered unwrapped interferogram geocoded in radians |
 | los_displacement | 2D Displacement in the satellite line of sight (LOS)    |
@@ -100,6 +106,21 @@ The following types should be used as applicable `rel` types in the
 | --------- | --------------------------------------------------------- |
 | reference | This link points to the reference input product STAC Item |
 | secondary | This link points to the secondary input product STAC Item |
+
+### Links roles
+
+It is possible to use [Links Roles](https://github.com/radiantearth/stac-spec/tree/master/item-spec/item-spec.md#link-roles)
+to provide clients with more information about the linked item in an item or a collection.
+The following list includes a shared vocabulary for InSAR assets.
+This list should not be considered definitive, and implementors are welcome to use other asset roles. If consensus and tooling consolidates around
+these role names then they will be specified in the future as more standard than just 'best practices'.
+
+| Role Name | Description                                                               |
+| --------- | ------------------------------------------------------------------------- |
+| event     | Item is related to an event (e.g. earthquake, volcano eruption)           |
+| coesismic | Item is related to a coesismic event or data results (e.g. interferogram) |
+| post      | Item is related to a post event or data results (e.g. interferogram)      |
+| pre       | Item is related to a pre event or data results (e.g. interferogram)       |
 
 ## Contributing
 

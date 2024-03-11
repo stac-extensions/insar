@@ -2,8 +2,9 @@
   "stac_version": "1.0.0",
   "stac_extensions": [
     "https://stac-extensions.github.io/insar/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/sar/v1.1.0/schema.json",
-    "https://stac-extensions.github.io/sat/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/sat/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/view/v1.0.0/schema.json",
     "https://stac-extensions.github.io/processing/v1.1.0/schema.json"
   ],
   "type": "Feature",
@@ -42,21 +43,26 @@
     ]
   },
   "properties": {
-    "date_time": "2022-03-21T07:57:45.000Z",
-    "sar:polarizations": "VV",
+    "datetime": "2022-03-21T07:57:45.000Z",
+    "sar:polarizations": [
+      "VV"
+    ],
+    "sar:instrument_mode": "IW",
+    "sar:frequency_band": "C",
+    "sar:product_type": "GUNW",
     "processing:level": "L3",
     "processing:lineage": "Geocoded Unwrapped Interferogram TOPSAR",
-    "processing:sftware": {
+    "processing:software": {
       "ESA SNAP Toolbox": "8.0",
       "SNAPHU": "1.4.2"
     },
     "sat:orbit_state": "descending",
-    "sat:relative_orbit": "82",
-    "view:azimuth": "-11.0",
-    "view:incidence_angle": "30.0",
-    "insar:height_of_ambiguity": -1.27421945559537858E+03,
+    "sat:relative_orbit": 82,
+    "view:azimuth": 11,
+    "view:incidence_angle": 30,
+    "insar:height_of_ambiguity": -1274.2194555953786,
     "insar:temporal_baseline": 12,
-    "insar:perpendicular_baseline": 1.21935032939007009E+01,
+    "insar:perpendicular_baseline": 12.1935032939007,
     "insar:reference_datetime": "2022-03-15T07:57:41Z",
     "insar:secondary_datetime": "2022-03-27T07:58:06Z"
   },

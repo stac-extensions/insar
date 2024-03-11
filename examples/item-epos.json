@@ -2,12 +2,12 @@
   "stac_version": "1.0.0",
   "stac_extensions": [
     "https://stac-extensions.github.io/insar/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/sar/v1.1.0/schema.json",
-    "https://stac-extensions.github.io/sat/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/sar/v1.0.0/schema.json",
+    "https://stac-extensions.github.io/sat/v1.0.0/schema.json",
     "https://stac-extensions.github.io/processing/v1.1.0/schema.json",
-    "https://stac-extensions.github.io/view/v1.1.0/schema.json",
+    "https://stac-extensions.github.io/view/v1.0.0/schema.json",
     "https://stac-extensions.github.io/projection/v1.1.0/schema.json",
-    "https://stac-extensions.github.io/scientific/v1.1.0/schema.json"
+    "https://stac-extensions.github.io/scientific/v1.0.0/schema.json"
   ],
   "type": "Feature",
   "id": "InU_CNRIREA_20200814_20200820_ECJT",
@@ -46,21 +46,25 @@
   },
   "properties": {
     "created": "2020-08-31T07:24:01Z",
-    "date_time": "2020-08-14T21:30:32Z",
+    "datetime": "2020-08-14T21:30:32Z",
     "start_datetime": "2020-08-14T21:30:39.872810Z",
     "end_datetime": "2020-08-20T21:30:17.536197Z",
     "processing:level": "L3",
     "processing:lineage": "Parallel SBAS Interferometry Chain",
-    "processing:sftware": {
+    "processing:software": {
       "CNR-IREA P-SBAS": "28"
     },
-    "proj:epsg": "4326",
+    "proj:epsg": 4326,
     "sat:orbit_state": "descending",
-    "sat:relative_orbit": "82",
+    "sat:relative_orbit": 82,
+    "sar:product_type": "InU",
     "sar:instrument_mode": "IW",
-    "sar:polarizations": "VV",
+    "sar:frequency_band": "C",
+    "sar:polarizations": [
+      "VV"
+    ],
     "sar:looks_range": 20,
-    "sar:looks_azimuth" : 5,
+    "sar:looks_azimuth": 5,
     "sar:observation_direction": "right",
     "sar:resolution_range": 73,
     "sar:resolution_azimuth": 73,
@@ -74,15 +78,15 @@
         "citation": "SBAS-DInSAR Parallel Processing for Deformation Time-Series Computation"
       }
     ],
-    "view:azimuth": "-11.0",
-    "view:incidence_angle": "30.0",
-    "insar:height_of_ambiguity": -1.27421945559537858E+03,
+    "view:azimuth": 11,
+    "view:incidence_angle": 30,
+    "insar:height_of_ambiguity": -1274.2194555953786,
     "insar:temporal_baseline": 12,
-    "insar:perpendicular_baseline": 1.21935032939007009E+01,
+    "insar:perpendicular_baseline": 12.1935032939007,
     "insar:reference_datetime": "2022-03-15T07:57:41Z",
     "insar:secondary_datetime": "2022-03-27T07:58:06Z",
-    "insar:processsing_dem": "SRTM1",
-    "insar:geocoding_dem": "SRTM1",
+    "insar:processing_dem": "SRTM1",
+    "insar:geocoding_dem": "SRTM1"
   },
   "links": [
     {
