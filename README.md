@@ -118,7 +118,7 @@ these role names then they will be specified in the future as more standard than
 | Role Name | Description                                                               |
 | --------- | ------------------------------------------------------------------------- |
 | event     | Item is related to an event (e.g. earthquake, volcano eruption)           |
-| coesismic | Item is related to a coesismic event or data results (e.g. interferogram) |
+| coseismic | Item is related to a coseismic event or data results (e.g. interferogram) |
 | post      | Item is related to a post event or data results (e.g. interferogram)      |
 | pre       | Item is related to a pre event or data results (e.g. interferogram)       |
 
