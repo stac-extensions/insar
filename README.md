@@ -36,6 +36,7 @@ The extension is primarly intented to describe **products** of InSAR processing,
 | insar:secondary_datetime     | string | Date of secondary acquisition, in UTC. It is formatted according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6).                                                                                                                                 |
 | insar:processing_dem        | string | String representing the Digital Elevation Model used for processing the input data. A list is proposed in the [DEMs section](#digital-elevation-models-dems)                                                                                                                  |
 | insar:geocoding_dem          | string | String representing the Digital Elevation Model used for geocoding the product. A list is proposed in the [DEMs section](#digital-elevation-models-dems)                                                                                                                      |
+| insar:atmospheric_correction | string | String representing the atmospheric (tropospheric) correction applied to the interferometric phase. A list is proposed in the [Atmospheric corrections section](#atmospheric-corrections)                                                                                     |
 
 ## Best Practices
 
@@ -96,6 +97,24 @@ This list should not be considered definitive, and implementors are welcome to u
 | COP-DEM_GLO30  | Copernicus DEM - Global Coverage                                                                       | 30m                  |
 | COP-DEM_GLO90  | Copernicus DEM - Global Coverage                                                                       | 90m                  |
 | GTOPO30        | USGS Global Terrain Elevation Data (30m)                                                               | 30m                  |
+
+## Atmospheric corrections
+
+The atmospheric corrections are named to commonly used methods or datasets to estimate and remove the tropospheric phase delay.
+The value should identify the source of the correction (weather model, external service or method).
+This list should not be considered definitive, and implementors are welcome to use other names.
+
+| Name        | Description                                                                                       |
+| ----------- | ------------------------------------------------------------------------------------------------- |
+| none        | No atmospheric correction applied                                                                 |
+| ERA5        | Correction computed from the ECMWF ERA5 global atmospheric reanalysis                             |
+| ERA-Interim | Correction computed from the ECMWF ERA-Interim global atmospheric reanalysis (superseded by ERA5) |
+| HRES        | Correction computed from the ECMWF High Resolution (HRES) operational weather model               |
+| MERRA2      | Correction computed from the NASA GMAO MERRA-2 global atmospheric reanalysis                      |
+| HRRR        | Correction computed from the NOAA High-Resolution Rapid Refresh (HRRR) regional weather model     |
+| GACOS       | Correction from the Generic Atmospheric Correction Online Service for InSAR (GACOS)               |
+| GNSS        | Correction computed from GNSS zenith tropospheric delays                                          |
+| empirical   | Empirical correction estimated from the relation between the phase and the elevation              |
 
 ## Relation types
 

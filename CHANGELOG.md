@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `insar:atmospheric_correction` field to describe the tropospheric correction applied to the phase ([#6](https://github.com/stac-extensions/insar/issues/6))
+
 ### Changed
 
 ### Deprecated

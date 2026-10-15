@@ -64,7 +64,8 @@
     "insar:temporal_baseline": 12,
     "insar:perpendicular_baseline": 12.1935032939007,
     "insar:reference_datetime": "2022-03-15T07:57:41Z",
-    "insar:secondary_datetime": "2022-03-27T07:58:06Z"
+    "insar:secondary_datetime": "2022-03-27T07:58:06Z",
+    "insar:atmospheric_correction": "ERA5"
   },
   "links": [
     {
