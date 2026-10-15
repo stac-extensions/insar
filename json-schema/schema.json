@@ -56,6 +56,11 @@
                       "required": [
                         "insar:geocoding_dem"
                       ]
+                    },
+                    {
+                      "required": [
+                        "insar:atmospheric_correction"
+                      ]
                     }
                   ]
                 },
@@ -148,6 +153,9 @@
           "type": "string"
         },
         "insar:geocoding_dem": {
+          "type": "string"
+        },
+        "insar:atmospheric_correction": {
           "type": "string"
         }
       },
